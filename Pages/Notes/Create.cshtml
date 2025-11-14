@@ -1,0 +1,25 @@
+@page
+@model NotesApp.Pages.Notes.CreateModel
+@{
+    ViewData["Title"] = "Create Note";
+}
+
+<h1>Create Note</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Note.Title" class="form-label"></label>
+        <input asp-for="Note.Title" class="form-control" />
+        <span asp-validation-for="Note.Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Note.Content" class="form-label"></label>
+        <textarea asp-for="Note.Content" class="form-control" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

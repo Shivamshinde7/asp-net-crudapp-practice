@@ -1,0 +1,14 @@
+@page "{id:int}"
+@model NotesApp.Pages.Notes.DetailsModel
+@{
+    ViewData["Title"] = "Note Details";
+}
+
+<h1>@Model.Note.Title</h1>
+<p><small>Created: @Model.Note.CreatedAt.ToLocalTime().ToString("f")</small></p>
+<p>@Model.Note.Content</p>
+
+<p>
+    <a asp-page="Edit" asp-route-id="@Model.Note.Id" class="btn btn-primary">Edit</a>
+    <a asp-page="/Index" class="btn btn-secondary">Back</a>
+</p>

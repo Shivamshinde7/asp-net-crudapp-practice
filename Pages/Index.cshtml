@@ -1,0 +1,30 @@
+﻿@page
+@model NotesApp.Pages.Notes.IndexModel
+@{
+    ViewData["Title"] = "Notes";
+}
+
+<h1>Notes</h1>
+
+<p><a class="btn btn-primary" asp-page="/Notes/Create">Create New Note</a></p>
+
+<table class="table">
+    <thead>
+        <tr><th>Title</th><th>Content</th><th>Created</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var note in Model.Notes)
+    {
+        <tr>
+            <td>@note.Title</td>
+            <td>@note.Content</td>
+            <td>@note.CreatedAt.ToLocalTime().ToString("g")</td>
+            <td>
+                <a asp-page="/Notes/Details" asp-route-id="@note.Id">Details</a> |
+                <a asp-page="/Notes/Edit" asp-route-id="@note.Id">Edit</a> |
+                <a asp-page="/Notes/Delete" asp-route-id="@note.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

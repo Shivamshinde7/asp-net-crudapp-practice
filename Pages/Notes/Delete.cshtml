@@ -1,0 +1,18 @@
+@page "{id:int}"
+@model NotesApp.Pages.Notes.DeleteModel
+@{
+    ViewData["Title"] = "Delete Note";
+}
+
+<h1>Delete Note</h1>
+
+<div class="mb-3">
+    <h4>@Model.Note.Title</h4>
+    <p>@Model.Note.Content</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Note.Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
